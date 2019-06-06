@@ -1,5 +1,5 @@
 $skew-number: 170px;
-$min-height: 400px;
+$min-height: 800px;
 
 .oblique {
   box-sizing: border-box;
@@ -9,12 +9,25 @@ $min-height: 400px;
 }
 
 .oblique__title {
+  position: relative;
   margin: 0;
-  padding: 200px 0;
+  margin-bottom: 4px;
+  min-height: 100px;
+  padding-left: 40px;
   font-size: 42px;
   font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 4px;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -60px;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+  }
 }
 
 .oblique__desc {
@@ -33,6 +46,27 @@ $min-height: 400px;
   border-radius: 5px;
   font-weight: 600;
   font-size: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: background-color .4s;
+
+  &::after {
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .05;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+
+  &:hover::after {
+    left: 120%;
+    transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
 
   span {
     margin-left: 10px;
@@ -44,55 +78,35 @@ $min-height: 400px;
 .oblique {
   min-height: $min-height;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .oblique--dark {
   color: #fff;
   background: #001C55;
+
+  .oblique__btn:hover {
+    background-color: rgba(255, 255, 255, .05);
+  }
+
+  .oblique__btn::after {
+    background-color: #fff;
+  }
 }
 
 .oblique--light {
   color: #000;
   background: #FAFAFA;
-}
 
-.oblique--1 {
-  min-height: $min-height + $skew-number;
-
-  .oblique__image-inner {
-    top: $skew-number;
-    background-image: url('../img/bg-1.jpg');
+  .oblique__btn:hover {
+    background-color: rgba(0, 0, 0, .05);
   }
 
-  .oblique__btn {
-    border: 1px solid #fff;
+  .oblique__btn::after {
+    background-color: #000;
   }
 }
-
-.oblique--2 {
-
-  .oblique__image-inner {
-    background-image: url('../img/bg-2.jpg');
-  }
-
-  .oblique__btn {
-    border: 1px solid #1F9EFF;
-  }
-}
-
-.oblique--3 {
-  min-height: $min-height - $skew-number;
-
-  .oblique__image-inner {
-    bottom: $skew-number;
-    background-image: url('../img/bg-3.jpg');
-  }
-
-  .oblique__btn {
-    border: 1px solid #1F9EFF;
-  }
-}
-
 
 
 .oblique__image-outer {
@@ -114,3 +128,90 @@ $min-height: 400px;
   background-size: cover;
   background-position: center;
 }
+
+.oblique__content {
+  position: relative;
+  z-index: 1;
+  padding-left: 60px;
+  max-width: 800px;
+  margin-top: -$min-height / 4;
+}
+
+
+
+.oblique--1 {
+  min-height: $min-height + $skew-number;
+
+  .oblique__image-inner {
+    top: $skew-number;
+    background-image: url('../img/bg-1.jpg');
+  }
+
+  .oblique__content {
+    margin-left: auto;
+  }
+
+  .oblique__title::before {
+    background: #868DA4 url('../img/career.svg') center no-repeat;
+    background-size: 55px 55px;
+  }
+
+  .oblique__btn {
+    border: 1px solid #fff;
+  }
+}
+
+.oblique--2 {
+
+  .oblique__image-inner {
+    background-image: url('../img/bg-2.jpg');
+  }
+
+  .oblique__title::before {
+    background: #009FFF url('../img/resume.svg') center no-repeat;
+    background-size: 50px 50px;
+  }
+
+  .oblique__btn {
+    color: #1F9EFF;
+    border: 1px solid #1F9EFF;
+  }
+}
+
+.oblique--3 {
+  min-height: $min-height - $skew-number;
+  text-align: center;
+
+  .oblique__image-inner {
+    bottom: $skew-number;
+    background-image: url('../img/bg-3.jpg');
+  }
+
+  .oblique__content {
+    margin: 0 auto;
+  }
+
+  .oblique__title {
+    min-height: 0;
+    padding-left: 0;
+    padding-top: 100px;
+
+
+    &::before {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #009FFF url('../img/skills.svg') center no-repeat;
+      background-size: 57px 51px;
+    }
+  }
+
+  .oblique__btn {
+    color: #1F9EFF;
+    border: 1px solid #1F9EFF;
+  }
+}
+
+
+
+
