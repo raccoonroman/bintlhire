@@ -1,5 +1,8 @@
-$skew-number: 170px;
+$skew-number: 180px;
 $min-height: 800px;
+$min-height-breakpoint-1: $min-height / 4 * 3;
+$skew-number-breakpoint-1: $skew-number / 4 * 3;
+
 
 .oblique {
   box-sizing: border-box;
@@ -167,6 +170,10 @@ $min-height: 800px;
     background-image: url('../img/bg-2.jpg');
   }
 
+  .oblique__title {
+    max-width: 480px;
+  }
+
   .oblique__title::before {
     background: #009FFF url('../img/resume.svg') center no-repeat;
     background-size: 50px 50px;
@@ -189,6 +196,7 @@ $min-height: 800px;
 
   .oblique__content {
     margin: 0 auto;
+    padding: 0;
   }
 
   .oblique__title {
@@ -213,5 +221,94 @@ $min-height: 800px;
 }
 
 
+@media (max-width: 1200px) {
+  .oblique {
+    min-height: $min-height-breakpoint-1;
+  }
 
+  .oblique__image-outer {
+    top: -$skew-number-breakpoint-1;
+    bottom: -$skew-number-breakpoint-1;
+  }
 
+  .oblique__image-inner {
+    top: -$skew-number-breakpoint-1;
+  }
+
+  .oblique__content {
+    margin-top: -$min-height-breakpoint-1 / 4;
+  }
+
+  .oblique--1 {
+    min-height: $min-height-breakpoint-1 + $skew-number-breakpoint-1;
+
+    .oblique__image-inner {
+      top: $skew-number-breakpoint-1;
+    }
+  }
+
+  .oblique--3 {
+    min-height: $min-height-breakpoint-1 - $skew-number-breakpoint-1;
+    text-align: center;
+
+    .oblique__image-inner {
+      bottom: $skew-number-breakpoint-1;
+    }
+  }
+
+  .oblique__content {
+    padding-left: 30px;
+  }
+
+  .oblique .oblique__title {
+    font-size: 32px;
+    padding-left: 30px;
+
+    &::before {
+      left: -38px;
+      width: 60px;
+      height: 60px;
+      background-size: 36px auto;
+    }
+  }
+
+  .oblique--3 .oblique__title {
+    padding-left: 0;
+    padding-top: 70px;
+
+    &::before {
+      left: 50%;
+    }
+  }
+
+  .oblique__desc {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .oblique__content {
+    padding-left: 0;
+  }
+
+  .oblique .oblique__title {
+    font-size: 24px;
+    padding-left: 54px;
+
+    &::before {
+      left: 0px;
+      width: 44px;
+      height: 44px;
+      background-size: 28px auto;
+    }
+  }
+
+  .oblique--3 .oblique__title {
+    padding-left: 0;
+    padding-top: 54px;
+
+    &::before {
+      left: 50%;
+    }
+  }
+}
