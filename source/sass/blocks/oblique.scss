@@ -45,31 +45,14 @@ $skew-number-breakpoint-1: $skew-number / 4 * 3;
   vertical-align: top;
   text-align: center;
   padding: 13px 33px 11px;
-  background-color: transparent;
   border-radius: 5px;
   font-weight: 600;
   font-size: 16px;
   overflow: hidden;
   position: relative;
-  transition: background-color .4s;
+  transition: background-position .3s;
 
-  &::after {
-    content: "";
-    height: 155px;
-    left: -75px;
-    opacity: .05;
-    position: absolute;
-    top: -50px;
-    transform: rotate(35deg);
-    transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
-    width: 50px;
-    z-index: -10;
-  }
 
-  &:hover::after {
-    left: 120%;
-    transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
-  }
 
   span {
     margin-left: 10px;
@@ -89,12 +72,13 @@ $skew-number-breakpoint-1: $skew-number / 4 * 3;
   color: #fff;
   background: #001C55;
 
-  .oblique__btn:hover {
-    background-color: rgba(255, 255, 255, .05);
-  }
+  .oblique__btn {
+    background: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .05) 50%);
+    background-size: 200% 100%;
 
-  .oblique__btn::after {
-    background-color: #fff;
+    &:hover {
+      background-position: 100% 0;
+    }
   }
 }
 
@@ -102,12 +86,13 @@ $skew-number-breakpoint-1: $skew-number / 4 * 3;
   color: #000;
   background: #FAFAFA;
 
-  .oblique__btn:hover {
-    background-color: rgba(0, 0, 0, .05);
-  }
+  .oblique__btn {
+    background: linear-gradient(90deg, transparent 50%, rgba(0, 0, 0, .05) 50%);
+    background-size: 200% 100%;
 
-  .oblique__btn::after {
-    background-color: #000;
+    &:hover {
+      background-position: 100% 0;
+    }
   }
 }
 
