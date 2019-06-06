@@ -1,0 +1,116 @@
+$skew-number: 170px;
+$min-height: 400px;
+
+.oblique {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.oblique__title {
+  margin: 0;
+  padding: 200px 0;
+  font-size: 42px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.oblique__desc {
+  margin: 0;
+  margin-bottom: 36px;
+}
+
+.oblique__btn {
+  color: inherit;
+  margin-bottom: 36px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 13px 33px 11px;
+  background-color: transparent;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+
+  span {
+    margin-left: 10px;
+  }
+}
+
+
+
+.oblique {
+  min-height: $min-height;
+  position: relative;
+}
+
+.oblique--dark {
+  color: #fff;
+  background: #001C55;
+}
+
+.oblique--light {
+  color: #000;
+  background: #FAFAFA;
+}
+
+.oblique--1 {
+  min-height: $min-height + $skew-number;
+
+  .oblique__image-inner {
+    top: $skew-number;
+    background-image: url('../img/bg-1.jpg');
+  }
+
+  .oblique__btn {
+    border: 1px solid #fff;
+  }
+}
+
+.oblique--2 {
+
+  .oblique__image-inner {
+    background-image: url('../img/bg-2.jpg');
+  }
+
+  .oblique__btn {
+    border: 1px solid #1F9EFF;
+  }
+}
+
+.oblique--3 {
+  min-height: $min-height - $skew-number;
+
+  .oblique__image-inner {
+    bottom: $skew-number;
+    background-image: url('../img/bg-3.jpg');
+  }
+
+  .oblique__btn {
+    border: 1px solid #1F9EFF;
+  }
+}
+
+
+
+.oblique__image-outer {
+  position: absolute;
+  // min-height: $min-height;
+  overflow: hidden;
+  width: 100%;
+  top: -$skew-number;
+  bottom: -$skew-number;
+  transform: skew(0deg, -10deg);
+}
+
+.oblique__image-inner {
+  position: absolute;
+  top: -$skew-number;
+  bottom: 0;
+  width: 100%;
+  transform: skew(0deg, 10deg);
+  background-size: cover;
+  background-position: center;
+}
